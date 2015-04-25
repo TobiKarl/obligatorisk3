@@ -25,13 +25,14 @@ public class Gjest extends Kort {
 		Calendar today = Calendar.getInstance();
 		if (today.after(dateExpires)) {
 			setSperretKort(true);
-			System.out.println("\n" + this.fullNavn + "'s Key card is expired.");
 			return true;
 		} else {
 			int timeLeft = (int) (this.dateExpires.getTimeInMillis() - today
 					.getTimeInMillis());
 			int hoursLeft = timeLeft / (1000 * 60 * 60);
-			System.out.println("\n" + this.fullNavn + "'s key card has not expired yet. Hours Left: "+ hoursLeft);
+			System.out.println("\n" + this.fullNavn
+					+ "'s key card has not expired yet. Hours Left: "
+					+ hoursLeft);
 			return false;
 		}
 	}
@@ -41,16 +42,17 @@ public class Gjest extends Kort {
 		Scanner input = new Scanner(System.in);
 		if (this.sperretKort == false) {
 
-			System.out.println("\n" + this.fullNavn + ", please input PIN for access");
+			System.out.println("\n" + this.fullNavn
+					+ ", please input PIN for access");
 
 			if (input.nextInt() == this.PIN) {
 				System.out.println("Access granted for: " + this.fullNavn);
-				//
+				
 				return true;
 			} else {
 				System.out.println("Invalid PIN, access denied for: "
 						+ this.fullNavn);
-				// input.close();
+				
 				return false;
 			}
 		} else {
@@ -58,6 +60,11 @@ public class Gjest extends Kort {
 					+ this.fullNavn);
 			return false;
 		}
+	}
+
+	@Override
+	public Kort Clone() throws CloneNotSupportedException {
+		return (Kort) super.clone();
 	}
 
 }

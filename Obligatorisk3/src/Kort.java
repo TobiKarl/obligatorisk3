@@ -1,6 +1,6 @@
 import java.util.Calendar;
 
-public abstract class Kort {
+public abstract class Kort implements Comparable<Kort>, Cloneable {
 
 	protected String fornavn, etternavn;
 	protected String fullNavn = fornavn + " " + etternavn;
@@ -19,12 +19,17 @@ public abstract class Kort {
 		this.sperretKort = false;
 		kortNummer = (int) Math.round((float) Math.random() * 9999999);
 	}
+	
+	
+	
+	
 
 	public void setKortNummer(int kortnummer) {
 		this.kortNummer = kortnummer;
 	}
 
 	public String getNavn() {
+		;
 		return fullNavn;
 	}
 
@@ -55,6 +60,13 @@ public abstract class Kort {
 	public abstract boolean checkPIN(int PIN);
 
 	public abstract boolean Access();
-
+	
+	public abstract Kort Clone() throws CloneNotSupportedException;
+	public int compareTo(Kort kort) {
+		if (this.etternavn.compareTo(kort.etternavn) == 0) {
+			return this.fornavn.compareTo(kort.fornavn);
+		}
+		return (this.etternavn.compareTo(kort.etternavn));
 	}
 
+}
