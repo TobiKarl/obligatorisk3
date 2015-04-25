@@ -124,4 +124,10 @@ public class Ansatt extends Kort implements Fast {
 		this.ansiennitet = ansiennitet;
 	}
 
+	@Override
+	public Kort Clone() throws CloneNotSupportedException {
+		return (Kort) super.clone();
+	}
+
+
 }

@@ -62,4 +62,9 @@ public class Gjest extends Kort {
 		}
 	}
 
+	@Override
+	public Kort Clone() throws CloneNotSupportedException {
+		return (Kort) super.clone();
+	}
+
 }

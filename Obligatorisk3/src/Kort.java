@@ -19,6 +19,10 @@ public abstract class Kort implements Comparable<Kort>, Cloneable {
 		this.sperretKort = false;
 		kortNummer = (int) Math.round((float) Math.random() * 9999999);
 	}
+	
+	
+	
+	
 
 	public void setKortNummer(int kortnummer) {
 		this.kortNummer = kortnummer;
@@ -56,7 +60,8 @@ public abstract class Kort implements Comparable<Kort>, Cloneable {
 	public abstract boolean checkPIN(int PIN);
 
 	public abstract boolean Access();
-
+	
+	public abstract Kort Clone() throws CloneNotSupportedException;
 	public int compareTo(Kort kort) {
 		if (this.etternavn.compareTo(kort.etternavn) == 0) {
 			return this.fornavn.compareTo(kort.fornavn);

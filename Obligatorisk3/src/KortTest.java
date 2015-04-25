@@ -3,7 +3,7 @@ import java.util.Collections;
 
 public class KortTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CloneNotSupportedException {
 
 		ArrayList<Kort> reg = new ArrayList<Kort>();
 
@@ -16,7 +16,8 @@ public class KortTest {
 		Kort k7 = new Ansatt("Tom Danielsen", 8384);
 		Kort k8 = new Ansatt("Kjetil Haraldsen", 9274);
 		Kort k9 = new Ansatt("Kim Hansen", 2754);
-		Kort k10 = new Gjest("Ole Olsen");
+		
+		Ansatt k1Clone=(Ansatt) k1.Clone();
 
 		reg.add(k1);
 		reg.add(k2);
@@ -27,12 +28,12 @@ public class KortTest {
 		reg.add(k7);
 		reg.add(k8);
 		reg.add(k9);
-		reg.add(k10);
+		reg.add(k1Clone);
 
 		System.out.println("Sammligner Ole Olsen med Marit Olsen:");
 		System.out.println(k1.compareTo(k2));
-		System.out.println("\nSammenligner Ansatt Ole Olsen med Gjest Ole Olsen:");
-		System.out.println(k1.compareTo(k10));
+		System.out.println("\nSammenligner Ansatt Ole Olsen med kopi Ansatt Ole Olsen:");
+		System.out.println(k1.compareTo(k1Clone));
 
 		Collections.sort(reg);
 
@@ -44,6 +45,8 @@ public class KortTest {
 		k1.Access();
 		k3.Access();
 		k6.Access();
+		
+		
 
 	}
 }
