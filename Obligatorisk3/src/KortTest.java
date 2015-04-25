@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class KortTest {
 
@@ -8,28 +9,41 @@ public class KortTest {
 
 		Kort k1 = new Ansatt("Ole Olsen", 1234);
 		Kort k2 = new Gjest("Marit Olsen");
-
-		System.out.println(k1.fornavn);
-		System.out.println(k1.etternavn);
+		Kort k3 = new Ansatt("Andreas Jansson", 8474);
+		Kort k4 = new Gjest("Tobias Karlsen");
+		Kort k5 = new Gjest("Borge Fagerli");
+		Kort k6 = new Gjest("Kjell Kjellesen");
+		Kort k7 = new Ansatt("Tom Danielsen", 8384);
+		Kort k8 = new Ansatt("Kjetil Haraldsen", 9274);
+		Kort k9 = new Ansatt("Kim Hansen", 2754);
+		Kort k10 = new Gjest("Ole Olsen");
 
 		reg.add(k1);
 		reg.add(k2);
+		reg.add(k3);
+		reg.add(k4);
+		reg.add(k5);
+		reg.add(k6);
+		reg.add(k7);
+		reg.add(k8);
+		reg.add(k9);
+		reg.add(k10);
 
+		System.out.println("Sammligner Ole Olsen med Marit Olsen:");
+		System.out.println(k1.compareTo(k2));
+		System.out.println("\nSammenligner Ansatt Ole Olsen med Gjest Ole Olsen:");
+		System.out.println(k1.compareTo(k10));
 
-		for (int i = 0; i < reg.size(); i++) {
-			Kort kort = reg.get(i);
-			System.out.println(kort);
-			System.out.println("Test av kort: med kode 1234 er"
-					+ (kort.checkPIN(1234) ? " gyldig" : " ugyldig"));
-			System.out.println("Test av kort: med kode 9999 er"
-					+ (kort.checkPIN(9999) ? " gyldig" : " ugyldig\n"));
+		Collections.sort(reg);
+
+		System.out.println("\nSortert Liste:");
+		for (Kort k : reg) {
+			System.out.println(k.fullNavn + ": " + k.getClass());
 		}
-		
-		((Gjest)k2).isExpired();
+
 		k1.Access();
-		k2.Access();
+		k3.Access();
+		k6.Access();
 
-	
 	}
-
 }

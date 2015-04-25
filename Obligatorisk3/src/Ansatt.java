@@ -28,7 +28,7 @@ public class Ansatt extends Kort implements Fast {
 
 		if (this.sperretKort == false) {
 			if (now.getHour() < 17 && now.getHour() > 7) {
-				System.out.println("Access Granted for:" + this.fullNavn
+				System.out.println("\nAccess Granted for:" + this.fullNavn
 						+ " (Automatic access in work hours)");
 				return true;
 			}
@@ -36,7 +36,7 @@ public class Ansatt extends Kort implements Fast {
 			else {
 				@SuppressWarnings("resource")
 				Scanner input = new Scanner(System.in);
-				System.out.println(this.fullNavn
+				System.out.println("\n" + this.fullNavn
 						+ ", Please input PIN for access");
 
 				if (input.nextInt() == this.PIN) {
@@ -49,7 +49,8 @@ public class Ansatt extends Kort implements Fast {
 				}
 			}
 		} else {
-			System.out.println("Key card is deactivated for: " + this.fullNavn);
+			System.out.println("\n Key card is deactivated for: "
+					+ this.fullNavn);
 			return false;
 		}
 	}
@@ -124,6 +125,3 @@ public class Ansatt extends Kort implements Fast {
 	}
 
 }
-
-
-
